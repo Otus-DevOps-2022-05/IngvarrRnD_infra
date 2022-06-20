@@ -11,4 +11,3 @@ apt -y install pritunl mongodb
 systemctl unmask mongodb
 systemctl enable mongodb pritunl
 systemctl start mongodb pritunl
-EOF
