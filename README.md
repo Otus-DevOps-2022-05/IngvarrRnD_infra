@@ -4,8 +4,8 @@ IngvarrRnD Infra repository
 # ДЗ 3
 # Самостоятельное задание + доп. задание по bastion
 
-# bastion_IP = 51.250.10.227
-# someinternalhost_IP = 10.128.0.5
+bastion_IP = 51.250.10.227
+someinternalhost_IP = 10.128.0.5
 
 В файл /.ssh/config вносим (для unix систем в IdentityFile будет путь /home/username/.ssh)
 
