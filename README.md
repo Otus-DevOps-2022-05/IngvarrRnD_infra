@@ -1,7 +1,7 @@
 # IngvarrRnD_infra
 IngvarrRnD Infra repository
 
-# ДЗ 4
+# ДЗ 3
 # Самостоятельное задание + доп. задание по bastion
 
 # bastion_IP = 51.250.10.227
