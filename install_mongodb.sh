@@ -1,5 +1,5 @@
 #!/bin/sh
-chmod +x -- "$0"
+chmod +x install_mongodb.sh
 sudo apt-get update
 sudo apt-get install -y mongodb
 sudo systemctl start mongodb
