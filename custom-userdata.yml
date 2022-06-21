@@ -1,0 +1,27 @@
+#cloud-config
+users:
+  - name: appuser
+    sudo: ALL=(ALL) NOPASSWD:ALL
+    shell: /bin/bash
+    ssh_authorized_keys:
+      - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCLOXZ1Q7UmOQ25F8bcElfDkkdFaQ7rO9lB8HhknQeo7WkDQoKsR08o2qBx/UTv+eAgK6nOJH9xizOgnOJMLyxxizS0+FztQ4uVI1f4oK7APtNvcri0VFwanH/A6b94HCFJUazR0e9ote6nUSoaEt7Te4cwGP0syFEP+04DxLe4yVym4o1EJc9wARkzAqp8YmKPohmOPqvh0s69elFBWa4HSrmDsGtoNIxGV+bZsj3Q+3sJUMJf+kQokeYSSnnSHav7RjaRrs/dWh3RGIppuuxoidO/SDNmbOimbX9fhdnaEIMa5ruMy8nXygxmBvg2PqeV1dtQ9JNmMjolT9SgjX0n rsa-key-20220619
+
+write_files:
+ - path: /tmp/startup_script.sh
+   permissions: '0555'
+   content: |
+     #!/bin/sh
+     sudo apt update
+     sudo apt install -y ruby-full ruby-bundler build-essential
+     sudo apt-get update
+     sudo apt-get install -y mongodb
+     sudo systemctl start mongodb
+     sudo systemctl enable mongodb
+     sudo apt-get update
+     apt-get install -y git
+     git clone -b monolith https://github.com/express42/reddit.git
+     cd reddit && bundle install
+     puma -d
+
+runcmd:
+ - [ bash, /tmp/startup_script.sh ]
