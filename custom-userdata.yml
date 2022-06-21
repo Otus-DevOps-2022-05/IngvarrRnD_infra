@@ -25,3 +25,4 @@ write_files:
 
 runcmd:
  - [ bash, /tmp/startup_script.sh ]
+ 
