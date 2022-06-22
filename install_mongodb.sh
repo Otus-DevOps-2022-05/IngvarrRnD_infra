@@ -1,5 +1,4 @@
-#!/bin/sh
-set -eu
+#!/bin/sh -eu
 sudo apt-get update
 sudo apt-get install -y mongodb
 sudo systemctl start mongodb
